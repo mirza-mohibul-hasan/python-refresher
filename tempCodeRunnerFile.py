@@ -1,0 +1,1 @@
+printHelloStructure(first = "Mirza", middle="Mohibul", last = "hasan")
