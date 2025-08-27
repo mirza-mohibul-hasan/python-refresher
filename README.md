@@ -1,3 +1,11 @@
+# 🐍 Python Refresher
+
+> A concise Python refresher for developers with experience in other languages 🚀
+
+This guide is for programmers who already know the basics of programming and want a fast overview of **Python’s syntax and essential features**. Use it to prepare for interviews, start a new project, or quickly transition from another language.
+
+---
+
 ## Built-in Data Types in Python
 
 | Category       | Data Types                              |
@@ -199,7 +207,8 @@ print(mixed_list)   # Output: [1, 3.14, True]
 ```
 
 **Sorting and Length:**
-
+- Use `sort()` to arrange the list in ascending or descending order.
+- Use `len()` to get the number of elements in a list.
 ```python
 my_list.sort()
 print(my_list)  # Output: [1, 2, 3, 4, 5]
@@ -208,4 +217,217 @@ my_list.sort(reverse=True)
 print(my_list)  # Output: [5, 4, 3, 2, 1]
 
 print(len(my_list))  # Output: 5
+```
+
+## Sets in Python
+
+Sets are similar to lists but are **unordered collections** that do **not allow duplicate elements**. Sets are defined using curly braces `{}`.
+
+```python
+my_set = {1, 2, 5, 9, 3, 4, 5}
+print(my_set)  # Output: {1, 2, 3, 4, 5, 9}
+# Note: Duplicate '5' is removed and order is not guaranteed.
+```
+
+**Looping Through a Set:**
+```python
+for item in my_set:
+    print(item)
+```
+
+**Adding Elements:**
+- Use `add()` to insert a single element.
+- Use `update()` to add multiple elements.
+
+```python
+my_set.add(7)
+print(my_set)  # Output: {1, 2, 3, 4, 5, 7, 9}
+
+my_set.update([6, 8, 10])
+print(my_set)  # Output: {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+```
+
+**Removing Elements:**
+- `remove(item)` deletes an element but raises an error if the element is not found.
+- `discard(item)` deletes an element if present, but does nothing if not found.
+
+```python
+my_set.remove(10)
+# my_set.remove(11)  # Raises KeyError if uncommented
+
+my_set.discard(9)
+my_set.discard(11)  # No error if 11 is not present
+print(my_set)  # Output: {1, 2, 3, 4, 5, 6, 7, 8}
+```
+
+**Clearing a Set:**
+- Clear all
+```python
+my_set.clear()
+print(my_set)  # Output: set()
+```
+
+## Tuples in Python
+
+Tuples are ordered, immutable collections of items.  
+They are defined using parentheses `()`.
+
+```python
+my_tuple = (1, 2, 2, 6, 3, 4, 5)
+print(my_tuple)  # Output: (1, 2, 2, 6, 3, 4, 5)
+```
+
+**Immutability:**  
+Tuples cannot be changed after creation.
+
+```python
+my_tuple[0] = 10  # Raises TypeError
+```
+
+**Accessing Elements:**  
+Access tuple elements by index.
+
+```python
+print(my_tuple[0])  # Output: 1
+```
+
+**Unchangeable Nature:**  
+You cannot add, remove, or modify items in a tuple after it is created.
+
+**Tuple Packing and Unpacking:**
+
+```python
+# Packing
+person = ("Alice", 30, "Engineer")
+
+# Unpacking
+name, age, profession = person
+print(name)       # Output: Alice
+print(age)        # Output: 30
+print(profession) # Output: Engineer
+```
+
+## Assignment-03: List Assignment
+
+**Task:**  
+- Create a list of 5 animals called `zoo`
+- Delete the animal at the 3rd index
+- Append a new animal at the end of the list
+- Delete the animal at the beginning of the list
+- Print all the animals
+- Print only the first 3 animals
+
+**Solution:**
+```python
+zoo = ["Lion", "Tiger", "Elephant", "Giraffe", "Zebra"]
+
+# Delete the animal at the 3rd index
+zoo.pop(3)
+print(zoo)  # Output: ['Lion', 'Tiger', 'Elephant', 'Zebra']
+
+# Append a new animal at the end of the list
+zoo.append("Deer")
+print(zoo)  # Output: ['Lion', 'Tiger', 'Elephant', 'Zebra', 'Deer']
+
+# Delete the animal at the beginning of the list
+zoo.pop(0)
+print(zoo)  # Output: ['Tiger', 'Elephant', 'Zebra', 'Deer']
+
+# Print all the animals
+for animal in zoo:
+    print(animal)  # Output: 'Tiger', 'Elephant', 'Zebra', 'Deer'
+
+# Print only the first 3 animals
+print(zoo[:3]) #print(zoo[0:3]) # Output: ['Tiger', 'Elephant', 'Zebra']
+```
+
+## Booleans and Operators in Python
+
+**Boolean Type:**  
+Booleans represent truth values: `True` or `False`.
+
+```python
+is_liked = True
+print(type(is_liked))  # Output: <class 'bool'>
+```
+
+**Comparison Operators:**  
+Used to compare values.
+
+```python
+print(1 == 1)   # Equal: True
+print(1 != 1)   # Not equal: False
+print(1 > 2)    # Greater than: False
+print(2 >= 1)   # Greater than or equal: True
+print(1 < 5)    # Less than: True
+print(1 <= 7)   # Less than or equal: True
+```
+
+**Logical Operators:**  
+Combine multiple conditions.
+
+```python
+print(2 > 1 and 5 < 7)    # Both must be True: True
+print(2 >= 1 or 5 < 7)    # At least one is True: True
+print(not(1 == 1))        # Negates the condition: False
+```
+
+## Flow Control: If, Elif, Else
+
+Python uses indentation to define blocks of code for flow control statements.
+
+**If Statement:**
+```python
+age = 1
+if age < 3:
+    print("Baby")  # Output: Baby
+```
+
+**If-Else Statement:**
+```python
+is_boy = False
+if is_boy:
+    print("Boy")
+else:
+    print("Girl")  # Output: Girl
+```
+
+**Elif (Else If):**
+```python
+hour = 16
+if hour < 12:
+    print("Good Morning")
+elif hour >= 12 and hour <= 17:
+    print("Good Afternoon")  # Output: Good Afternoon
+else:
+    print("Good Evening")
+```
+
+## Assignment-04: If-Else Assignment
+
+**Task:**  
+- Create a variable `grade` holding an integer between 0 - 100.
+- Use if, elif, else statements to print the letter grade based on the number grade.
+
+**Grades:**
+- A = 90 - 100
+- B = 80 - 89
+- C = 70 - 79
+- D = 60 - 69
+- F = 0 - 59
+
+**Solution:**
+```python
+grade = 87
+if grade >= 90 and grade <= 100:
+    print("A")
+elif 80 <= grade <= 89:  # If two variables are the same, you can write "80 <= grade <= 89"
+    print("B")
+elif 70 <= grade <= 79:
+    print("C")
+elif 60 <= grade <= 69:
+    print("D")
+else:
+    print("F")
+```
 ```
